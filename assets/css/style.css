@@ -1,6 +1,6 @@
 body {
     font-family: fantasy;
-    font-size: 100%;
+    font-size: 130%;
 }
 
 a {
@@ -16,7 +16,7 @@ button {
     display: inline-block;
     margin: 7px;
     cursor: pointer;
-    font-size: 80%;
+    font-size: 110%;
     background-color: darkcyan;
     border-radius: 7px;
     padding: 3px 11px;
