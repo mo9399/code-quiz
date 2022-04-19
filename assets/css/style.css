@@ -1,0 +1,28 @@
+body {
+    font-family: fantasy;
+    font-size: 100%;
+}
+
+a {
+    color: darkcyan;
+    text-decoration: none;
+}
+
+a:hover {
+    color: deepskyblue;
+}
+
+button {
+    display: inline-block;
+    margin: 7px;
+    cursor: pointer;
+    font-size: 80%;
+    background-color: darkcyan;
+    border-radius: 7px;
+    padding: 3px 11px;
+    color: white;
+}
+
+button:hover {
+    background-color: deepskyblue;
+}
