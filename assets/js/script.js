@@ -45,14 +45,27 @@ var startBtn = document.getElementById("start");
 var submitBtn = document.getElementById("submit");
 var initialsEl = document.getElementById("initials");
 
-// Countdown
+// Start Quiz
+function startQuiz() {
+    var startEl = document.getElementById("start-screen");
+    startEl.setAttribute("class", "hide");
 
+    questionEl.removeAttribute("class");
+
+    countdown();
+    timerEl.textContent = time;
+
+    getQuestion();
+}
+
+
+// Countdown
 function countdown() {
     timeLeft = 75;
     timeInterval = setInterval(function () {
         if (timeLeft < 0) {
             clearInterval(timeInterval);
-            allDone();
+            quizEnd();
             timerEl.textContent = "Time: 0";
         } else {
             timerEl.textContent = "Time: " + timeLeft;
@@ -109,7 +122,59 @@ function checkAnswer() {
     } else {
         // "Right" sound effect
         sfxRight.play();
-        
+        timeLeft = timeLeft - 10;
         feedbackEl.textContent = "Correct!";
     }
 }
+
+// Question Index counts the questions completed
+questionIndex++;
+
+if (questionIndex === questions.length) {
+    quizEnd();
+} else {
+    getQuestion();
+}
+
+// End quiz function
+function quizEnd(){
+    clearInterval(timeLeft);
+
+    var lastScreenEl = document.getElementById("last-screen");
+    lastScreenEl.removeAttribute("class");
+
+    var finalScoreEl = document.getElementById("final-score");
+    finalScoreEl.textContent = time;
+
+    questionEl.setAttribute("class", "hide")
+}
+
+// Initals
+function highscore() {
+    var initials = initialsEl.value.trim();
+
+    if (initials !== "") {
+        var highscores =
+        JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+        var newScore = {
+            score: time, initials: initials
+        };
+
+        highscore.push(newScore);
+        window.localStorage.setItem("highscore", JSON.stringify(highscores));
+        
+        window.location.href = "highscores.html";
+    }
+}
+
+function enter(event) {
+    if (event.key === "Enter") {
+        saveHighscore();
+    }
+}
+
+//User clicks
+submitBtn.onclick = saveHighscore;
+startBtn.onclick = startQuiz;
+initialsEl.onkeyup = enter;
