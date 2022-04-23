@@ -40,7 +40,7 @@ var timeLeft = "";
 var timeInterval = "";
 var questionEl = document.getElementById("questions");
 var timerEl = document.getElementById("time");
-var choicesEl = document.getElementById("choices");
+var choicesEl = document.getElementById("quiz");
 var startBtn = document.getElementById("start");
 var submitBtn = document.getElementById("submit");
 var initialsEl = document.getElementById("initials");
@@ -79,8 +79,8 @@ function countdown() {
 function getQuestion() {
     var currentQuestion = questions[questionIndex];
 
-    var nameEl = document.getElementById("question-name");
-    nameEl.textContent = currentQuestion.name;
+    var titleEl = document.getElementById("questions-title");
+    titleEl.textContent = currentQuestion.title;
 
     // clear old questions
     choicesEl.innerHTML = "";
@@ -175,6 +175,6 @@ function enter(event) {
 }
 
 //User clicks
-submitBtn.onclick = saveHighscore;
+//submitBtn.onclick = saveHighscore;
 startBtn.onclick = startQuiz;
 initialsEl.onkeyup = enter;
