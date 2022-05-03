@@ -38,17 +38,19 @@ var score = 0;
 var scoreId = 0;
 var timeLeft = "";
 var timeInterval = "";
-var questionEl = document.getElementById("questions");
+var questionEl = document.getElementById("wrapper");
 var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("quiz");
 var startBtn = document.getElementById("start");
 var submitBtn = document.getElementById("submit");
 var initialsEl = document.getElementById("initials");
+var startEl = document.getElementById("intro-screen");
+var feedbackEl =  document.getElementById("feedback");
 
 // Start Quiz
 function startQuiz() {
-    var startEl = document.getElementById("start-screen");
-    startEl.setAttribute("class", "hide");
+    
+    startEl.setAttribute("class", "hidden");
 
     questionEl.removeAttribute("class");
 
@@ -57,6 +59,8 @@ function startQuiz() {
 
     getQuestion();
 }
+
+
 
 
 // Countdown
@@ -78,9 +82,18 @@ function countdown() {
 // Get questions 
 function getQuestion() {
     var currentQuestion = questions[questionIndex];
+    console.log("currentQuestion", currentQuestion)
 
     var titleEl = document.getElementById("questions-title");
+    
     titleEl.textContent = currentQuestion.title;
+
+    for (let index = 0; index < questions.length; index++) {
+        const element = questions[index];
+        console.log("questions", element);
+        }
+
+    
 
     // clear old questions
     choicesEl.innerHTML = "";
@@ -116,14 +129,15 @@ function checkAnswer() {
         timerEl.textContent = time;
 
         // "Wrong" sound effect
-        sfxWrong.play();
+        //sfxWrong.play();
 
         feedbackEl.textContent = "Wrong!";
     } else {
         // "Right" sound effect
-        sfxRight.play();
+        //sfxRight.play();
         timeLeft = timeLeft - 10;
         feedbackEl.textContent = "Correct!";
+        getQuestion();
     }
 }
 
@@ -146,7 +160,7 @@ function quizEnd(){
     var finalScoreEl = document.getElementById("final-score");
     finalScoreEl.textContent = time;
 
-    questionEl.setAttribute("class", "hide")
+    questionEl.setAttribute("class", "hidden")
 }
 
 // Initals

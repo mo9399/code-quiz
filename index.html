@@ -22,12 +22,13 @@
               limit. Keep in mind that incorrect answers will penalize your
               score/time by ten seconds!
             </p>
-            <button class="btn" id="start">Start Quiz</button>
+            <button class="btn" id="start" onclick="startQuiz()">Start Quiz</button>
         </div>
 
         <div id="wrapper" class="hidden">
             <h2 id="questions-title"></h2>
             <div id="quiz" class="quiz"></div>
+            <div id="feedback"></div>
         </div>
 
         <div id="end" class="hidden">
