@@ -48,6 +48,10 @@ var feedbackEl =  document.getElementById("feedback");
 var instructionsEl = document.getElementById("instructions");
 var choiceListEl = document.createElement("ol");
 
+// sound effects
+var sfxRight = new Audio("assets/sfx/correct.wav");
+var sfxWrong = new Audio("assets/sfx/incorrect.wav");
+
 // Array to hold scores for saving
 let allScores = JSON.parse(localStorage.getItem("all-scores")) || [];
 
@@ -100,11 +104,13 @@ function checkAnswer(event) {
       // Correct condition
       if (selectedChoice.textContent == questions[questionIndex].answer) {
         score++;
+        sfxRight.play();
         feedback.textContent = "Correct!";
         // Incorrect condition
       } else {
         // Deduct 10 seconds from timer
         timeLeft = timeLeft - 10;
+        sfxWrong.play();
         feedback.textContent = "Wrong!";
       }
     }
