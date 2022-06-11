@@ -55,14 +55,151 @@ input[type="text"] {
     text-align: center;
 }
 
-.highscores {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
+
 
 .timer {
     position: absolute;
     top: 10px;
     right: 10px;
 }
+
+#title {
+    text-align: center;
+    margin: 25px auto;
+    width: 500px;
+  }
+  
+  #intro-content {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px auto;
+    width: 500px;
+  }
+  
+  #instructions {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  #wrapper {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25px auto;
+    width: 500px;
+  }
+  
+  .heading-center {
+    text-align: center;
+    margin: 25px auto;
+    width: 500px;
+  }
+  
+  .choices {
+    background-color: darkcyan;
+    margin-top: 10px;
+    padding: 5px 15px;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+  }
+
+  .choices:hover {
+    background-color: #4e00c2;
+    cursor: pointer;
+    animation: pulsate 1s ease-in-out;
+  }
+  
+  .scores {
+    background-color: darkcyan;
+    width: 500px;
+    margin-top: 10px;
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+  
+  #feedback {
+    margin-top: 20px;
+    border-top: 1px solid gray;
+    font-size: 20px;
+    width: 500px;
+    color: gray;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  
+  .all-done {
+    font-size: 24px;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin: 7px;
+    cursor: pointer;
+    font-size: 110%;
+    background-color: darkcyan;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 3px 11px;
+    color: white;
+  }
+  
+  .btn:hover {
+    background-color: #4e00c2;
+    cursor: pointer;
+  }
+  
+  #high-scores {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px auto;
+    width: 500px;
+  }
+  
+  #buttons {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 25px auto;
+    width: 500px;
+  }
+  
+  #score-content {
+    margin-top: 130px;
+  }
+  
+  /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+  @media screen and (max-width: 980px) {
+    #intro-content {
+      width: 80%;
+    }
+  }
+  
+  /* MEDIA QUERY FOR TABLETS AND SMALLER */
+  @media screen and (max-width: 768px) {
+    #intro-content {
+      width: 300px;
+    }
+  
+    #question {
+      font-size: 24px;
+    }
+  
+    .scores {
+      width: 200px;
+    }
+  }
+  
+  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+  @media screen and (max-width: 575px) {
+    #question {
+      font-size: 16px;
+    }
+  }
